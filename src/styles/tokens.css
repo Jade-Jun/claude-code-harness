@@ -1,12 +1,119 @@
-/*
- * 디자인 토큰 파일
+/**
+ * 디자인 토큰 (4층 구조)
  *
- * 프로젝트의 디자인 시스템에 맞게 토큰을 정의하세요.
- * Figma Variables 등 디자인 도구의 팔레트를 1:1 미러하는 것을 권장합니다.
+ * Figma Variables가 소스 오브 트루스.
+ * 이 파일은 Figma에서 export한 tokens.json의 1:1 미러.
+ * 임의 토큰 추가 금지 — Figma에 없는 색상은 --todo-* 로 마킹.
  *
- * 예시:
- * :root {
- *   --color-gray-950: #0D1117;
- *   --sem-bg-card: var(--color-gray-950);
- * }
+ * 재갱신: 디자인팀이 팔레트 업데이트 시 scripts/migrate-tokens.mjs 재실행.
+ *
+ * 층 구조:
+ *   1. Primitive (--color-*): 팔레트 원자값. 직접 사용 지양.
+ *   2. Base (--color-base-*): 브랜드 진입점.
+ *   3. Semantic (--sem-*): 용도별 매핑. 우선 사용.
+ *   4. Todo (--todo-*): Figma 미등록. 디자인팀 등록 요청 대상.
  */
+
+:root {
+  /* ============================================
+   * 1. Primitive — 팔레트 원자값
+   * Figma: Color.{Gray, Blue, Red, ...}
+   * 네이밍: --color-{hue}-{scale}
+   * ============================================ */
+
+  /* Gray */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Blue */
+  --color-blue-100: #DBEAFE;
+  --color-blue-300: #93C5FD;
+  --color-blue-500: #3B82F6;
+  --color-blue-700: #1D4ED8;
+  --color-blue-900: #1E3A8A;
+
+  /* Red */
+  --color-red-400: #F87171;
+  --color-red-500: #EF4444;
+
+  /* Green */
+  --color-green-500: #22C55E;
+
+  /* Yellow */
+  --color-yellow-500: #EAB308;
+
+  /* Opacity — color-mix()로 primitive 참조 */
+  --color-blue-a20: color-mix(in srgb, var(--color-blue-500) 20%, transparent);
+  --color-red-a20: color-mix(in srgb, var(--color-red-500) 20%, transparent);
+  --color-green-a20: color-mix(in srgb, var(--color-green-500) 20%, transparent);
+  --color-yellow-a20: color-mix(in srgb, var(--color-yellow-500) 20%, transparent);
+
+  /* ============================================
+   * 2. Base — 브랜드 진입점
+   * Figma: Base.{Primary, Secondary}
+   * ============================================ */
+
+  --color-base-primary: var(--color-blue-500);
+  --color-base-secondary: var(--color-gray-700);
+
+  /* ============================================
+   * 3. Semantic — 용도별 매핑 (우선 사용)
+   * Figma: Semantic.{Background, Text, Line, ...}
+   * 네이밍: --sem-{category}-{property}-{state}
+   * 카테고리 축약: Background→bg, Button→btn
+   * 반드시 Primitive를 var() 참조.
+   * ============================================ */
+
+  /* Background */
+  --sem-bg-background: var(--color-gray-950);
+  --sem-bg-card: var(--color-gray-800);
+  --sem-bg-input: var(--color-gray-900);
+
+  /* Text */
+  --sem-text-base: var(--color-gray-50);
+  --sem-text-brand: var(--color-blue-500);
+  --sem-text-sub: var(--color-gray-400);
+  --sem-text-caption: var(--color-gray-500);
+  --sem-text-placeholder: var(--color-gray-600);
+
+  /* Line */
+  --sem-line-base: var(--color-gray-600);
+  --sem-line-divide: var(--color-gray-700);
+
+  /* Icon */
+  --sem-icon-base: var(--color-gray-500);
+
+  /* System */
+  --sem-system-danger: var(--color-red-500);
+  --sem-system-warning: var(--color-yellow-500);
+  --sem-system-success: var(--color-green-500);
+  --sem-system-info: var(--color-blue-500);
+
+  /* Button — Primary */
+  --sem-btn-primary-bg: var(--color-blue-500);
+  --sem-btn-primary-bg-hover: var(--color-blue-700);
+  --sem-btn-primary-text: var(--color-gray-50);
+
+  /* Button — Secondary */
+  --sem-btn-secondary-bg: var(--color-gray-700);
+  --sem-btn-secondary-text: var(--color-gray-200);
+
+  /* ============================================
+   * 4. Todo — Figma 미등록
+   * 코드에서 필요하지만 디자인팀 팔레트에 없는 색상.
+   * grep -r "todo-" 로 디자인팀 요청 리스트 추출 가능.
+   * 등록 후 --sem-* 으로 승격.
+   * ============================================ */
+
+  --todo-bg-card-hover: var(--color-gray-700);
+  --todo-bg-toolbar-hover: var(--color-gray-800);
+}

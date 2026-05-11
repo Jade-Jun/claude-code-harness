@@ -129,6 +129,16 @@ claude-code-harness/
 
 이 프로젝트는 **스타터 킷**입니다. 클론 후 프로젝트에 맞게 수정하세요.
 
+### 디자인 토큰 시스템
+
+Figma Variables 기반 4층 토큰 시스템(Primitive → Base → Semantic → Todo)이 기본 포함되어 있습니다.
+
+1. Figma에서 Variables를 JSON으로 export
+2. `node scripts/migrate-tokens.mjs tokens.json` 실행
+3. `src/styles/tokens.css`가 프로젝트 팔레트로 갱신됨
+
+상세 가이드: `docs/design-token-system.md`
+
 ### 에이전트 팀 조정
 
 - 1인 개발: 개발자d + 개발자f를 하나의 `developer.md`로 통합

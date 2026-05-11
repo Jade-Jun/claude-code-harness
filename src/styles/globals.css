@@ -1,12 +1,51 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
-/*
- * 디자인 토큰 가이드
+/**
+ * Tailwind 유틸리티 노출을 위한 alias 층
  *
- * CSS 변수 기반 디자인 토큰 시스템을 권장합니다.
- * 구조 예시:
- *   Primitive (--color-*): 팔레트 원자값
- *   Semantic (--sem-*): 용도별 매핑
+ * tokens.css의 CSS 변수를 Tailwind 클래스명으로 매핑한다.
+ * CSS 변수명과 Tailwind 클래스명이 1:1 일치해야 한다.
  *
- * hex 하드코딩 대신 CSS 변수를 사용하세요.
+ * 예: --sem-bg-card → bg-sem-bg-card
+ *
+ * Primitive(--color-*)는 이미 Tailwind v4가 자동 인식하므로 alias 생략.
+ * Semantic(--sem-*)과 Todo(--todo-*)만 여기서 등록.
  */
+@theme inline {
+  /* Semantic — Background */
+  --color-sem-bg-background: var(--sem-bg-background);
+  --color-sem-bg-card: var(--sem-bg-card);
+  --color-sem-bg-input: var(--sem-bg-input);
+
+  /* Semantic — Text */
+  --color-sem-text-base: var(--sem-text-base);
+  --color-sem-text-brand: var(--sem-text-brand);
+  --color-sem-text-sub: var(--sem-text-sub);
+  --color-sem-text-caption: var(--sem-text-caption);
+  --color-sem-text-placeholder: var(--sem-text-placeholder);
+
+  /* Semantic — Line */
+  --color-sem-line-base: var(--sem-line-base);
+  --color-sem-line-divide: var(--sem-line-divide);
+
+  /* Semantic — Icon */
+  --color-sem-icon-base: var(--sem-icon-base);
+
+  /* Semantic — System */
+  --color-sem-system-danger: var(--sem-system-danger);
+  --color-sem-system-warning: var(--sem-system-warning);
+  --color-sem-system-success: var(--sem-system-success);
+  --color-sem-system-info: var(--sem-system-info);
+
+  /* Semantic — Button */
+  --color-sem-btn-primary-bg: var(--sem-btn-primary-bg);
+  --color-sem-btn-primary-bg-hover: var(--sem-btn-primary-bg-hover);
+  --color-sem-btn-primary-text: var(--sem-btn-primary-text);
+  --color-sem-btn-secondary-bg: var(--sem-btn-secondary-bg);
+  --color-sem-btn-secondary-text: var(--sem-btn-secondary-text);
+
+  /* Todo — Figma 미등록 */
+  --color-todo-bg-card-hover: var(--todo-bg-card-hover);
+  --color-todo-bg-toolbar-hover: var(--todo-bg-toolbar-hover);
+}
