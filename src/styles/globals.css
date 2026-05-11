@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/*
+ * 디자인 토큰 가이드
+ *
+ * CSS 변수 기반 디자인 토큰 시스템을 권장합니다.
+ * 구조 예시:
+ *   Primitive (--color-*): 팔레트 원자값
+ *   Semantic (--sem-*): 용도별 매핑
+ *
+ * hex 하드코딩 대신 CSS 변수를 사용하세요.
+ */
