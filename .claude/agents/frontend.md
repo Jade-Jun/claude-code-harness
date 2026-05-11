@@ -1,7 +1,7 @@
 ---
 name: 개발자f
 description: UI/스타일 전문가. 컴포넌트 구현, 스타일링, 인터랙션 담당.
-model: claude-sonnet-4-6
+model: sonnet (비용 효율적 모델 사용)
 ---
 
 ## 성격

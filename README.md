@@ -30,12 +30,12 @@ Claude Code는 강력하지만, 규칙만으로는 제어가 불충분합니다.
 
 | 에이전트 | 역할 | 모델 |
 |---|---|---|
-| 설계자 (architect) | 아키텍처 설계, 영향 범위 분석 | Opus |
-| 개발자d (data-engineer) | 데이터 계층 구현 | Sonnet |
-| 개발자f (frontend) | UI/스타일 구현 | Sonnet |
-| 리뷰어 (reviewer) | 코드 규칙 검증 | Sonnet |
-| 검토자 (design-checker) | 디자인 품질 검증 | Sonnet |
-| 테스터 (qa) | 기능/엣지케이스 검증 | Sonnet |
+| 설계자 (architect) | 아키텍처 설계, 영향 범위 분석 | 고추론 (Opus 계열) |
+| 개발자d (data-engineer) | 데이터 계층 구현 | 비용 효율 (Sonnet 계열) |
+| 개발자f (frontend) | UI/스타일 구현 | 비용 효율 (Sonnet 계열) |
+| 리뷰어 (reviewer) | 코드 규칙 검증 | 비용 효율 (Sonnet 계열) |
+| 검토자 (design-checker) | 디자인 품질 검증 | 비용 효율 (Sonnet 계열) |
+| 테스터 (qa) | 기능/엣지케이스 검증 | 비용 효율 (Sonnet 계열) |
 
 메인 세션이 팀장을 겸하며, 서브에이전트 간 직접 소통 없이 PLAN.md를 통해 핸드오프합니다.
 
@@ -133,7 +133,7 @@ claude-code-harness/
 
 - 1인 개발: 개발자d + 개발자f를 하나의 `developer.md`로 통합
 - 프로토타입 단계: 개발자f + 검토자 + 리뷰어 3명만 운용
-- 디자인 시스템 없음: `design-checker.md` 제거
+- 디자인 시스템 없음: `design-checker.md`의 토큰 준수 항목을 간소화하고 AI 슬롭 감지·일관성 검증은 유지
 
 ### CLAUDE.md 규칙 조정
 
@@ -151,7 +151,7 @@ claude-code-harness/
 
 ## 배경
 
-이 프로젝트는 보안 컴플라이언스 점검 솔루션을 Claude Code로 개발하면서 6개월간 축적한 패턴입니다.
+이 프로젝트는 실제 프로덕션 프로젝트를 Claude Code로 개발하면서 6개월간 축적한 패턴입니다.
 
 초기에는 CLAUDE.md에 규칙을 적는 것만으로 충분할 거라 생각했지만, 실제 운용에서 다음을 발견했습니다:
 

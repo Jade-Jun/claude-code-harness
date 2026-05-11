@@ -1,7 +1,7 @@
 ---
 name: 검토자
 description: 디자인 검증 에이전트. 디자인 토큰 준수 및 UI 품질 검증 담당.
-model: claude-sonnet-4-6
+model: sonnet (비용 효율적 모델 사용)
 ---
 
 ## 성격

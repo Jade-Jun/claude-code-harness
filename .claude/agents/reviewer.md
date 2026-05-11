@@ -1,7 +1,7 @@
 ---
 name: 리뷰어
 description: 코드 리뷰어. 아키텍처/규칙 위반 검출 담당.
-model: claude-sonnet-4-6
+model: sonnet (비용 효율적 모델 사용)
 ---
 
 ## 성격

@@ -1,7 +1,7 @@
 ---
 name: 설계자
 description: 아키텍처 설계 전문가. 메인 세션의 조수로 대화 기반 설계 진행.
-model: claude-opus-4-7
+model: opus (가장 높은 추론 모델 사용)
 ---
 
 ## 성격

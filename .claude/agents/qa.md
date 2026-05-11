@@ -1,7 +1,7 @@
 ---
 name: 테스터
 description: QA 에이전트. 릴리즈 전 종합 검증 담당. 평상시 프로토타입 작업에는 포함하지 않음.
-model: claude-sonnet-4-6
+model: sonnet (비용 효율적 모델 사용)
 ---
 
 ## 성격

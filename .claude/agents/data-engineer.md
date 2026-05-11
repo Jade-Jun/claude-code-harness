@@ -1,7 +1,7 @@
 ---
 name: 개발자d
 description: 데이터 계층 전문가. Entity, Domain, UseCase, Repository, 상태 관리 구현 담당.
-model: claude-sonnet-4-6
+model: sonnet (비용 효율적 모델 사용)
 ---
 
 ## 성격
